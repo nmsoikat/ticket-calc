@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .f-class{
+      justify-content: space-between;
+    }
+    main{
+      min-height: 80vh;
+    }
+    </style>
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+        <div class="booking-form">
+          <h3>Booking Success</h3>
+          <div class="input-group f-class">
+            <label for="">First Class ($150)</label>
+            <strong>$<span id="first-class-ticket">0</span></strong>
+          </div>
+          
+          <div class="input-group f-class">
+            <label for="">Economy ($100)</label>
+            <strong>$<span id="economy-ticket">0</span></strong>
+          </div>
+          <div class="calculations">
+              <div class="amount">
+                  <div class="left">
+                      <p>Subtotal</p>
+                  </div>
+                  <div class="right">
+                      <strong>$<span id="subtotal">0 </span></strong>
+                  </div>
+              </div>
+
+              <div class="amount">
+                  <div class="left">
+                      <p>Charge 10% VAT</p>
+                  </div>
+                  <div class="right">
+                     <strong>$<span id="vat" >0</span></strong>
+                  </div>
+              </div>
+              <hr>
+              <div class="amount">
+                  <div class="left">
+                      <h4>Total</h4>
+                  </div>
+                  <div class="right">
+                      <strong>$<span id="total">0</span></strong>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="booking-content">
+            <h1>Thank You <br> For buy ticket</h1>
+        </div>
+    </section>
+
+    <!--Thank You-->
+    <script>
+        const firstClassTicket = document.getElementById("first-class-ticket");
+        const economyTicket = document.getElementById("economy-ticket");
+        const subtotal = document.getElementById("subtotal");
+        const vat = document.getElementById("vat");
+        const total = document.getElementById("total");
+        let data = JSON.parse(localStorage.getItem('data'))
+        firstClassTicket.innerHTML = data.firstClass;
+        economyTicket.innerHTML = data.economyClass;
+        subtotal.innerHTML = data.subtotal;
+        vat.innerHTML = data.vat;
+        total.innerHTML = data.total;
+    </script>
+</body>
+
+</html>
