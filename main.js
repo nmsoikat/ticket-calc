@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", function () {
   // Select DOM
   const firstClassTicket = document.getElementById("first-class-ticket");
   const economyTicket = document.getElementById("economy-ticket");
@@ -57,11 +57,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   btnBookNow.addEventListener("click", function (event) {
-    if (firstClass === 0 || economyClass === 0) {
-      event.preventDefault();
-      return;
-    }
-
     let data = {
       firstClass: firstClassAmount,
       economyClass: economyClassAmount,
